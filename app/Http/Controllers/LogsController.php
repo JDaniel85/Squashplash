@@ -23,7 +23,7 @@ class LogsController extends Controller
         // Verificar si el archivo existe
         if (!file_exists($file)) {
             // Crear archivo vacío si no existe
-            file_put_contents($file, "# Log de Acciones del Sistema Generado el: " . Carbon::now()->format('Y-m-d H:i:s') . "\n\n");
+            file_put_contents($file, "# Acciones del Sistema Generado el: " . Carbon::now()->format('Y-m-d H:i:s') . "\n\n");
         }
         
         $fileName = 'logs_acciones_' . Carbon::now()->format('Y-m-d_H-i-s') . '.log';
@@ -65,7 +65,7 @@ class LogsController extends Controller
         $file = storage_path('logs/acciones.log');
         
         // Crear nuevo archivo con header
-        $header = "# Log de Acciones del Sistema\n";
+        $header = "# Acciones del Sistema\n";
         $header .= "# Archivo limpiado el: " . Carbon::now()->format('Y-m-d H:i:s') . "\n";
         $header .= "# Limpiado por: " . $user->name . " (ID: " . $user->id . ")\n\n";
         
